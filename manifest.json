@@ -1,10 +1,22 @@
 {
-  "name": "Hello Extensions",
-  "description": "Base Level Extension",
-  "version": "1.0",
   "manifest_version": 3,
-  "action": {
-    "default_popup": "hello.html",
-    "default_icon": "hello_extensions.png"
-  }
+  "name": "Private Notes",
+  "version": "1.0",
+  "description": "Take Notes for Jobs in Salesforce",
+
+  "icons": {
+    "16": "images/notes-16.png",
+    "32": "images/notes-32.png",
+    "48": "images/notes-48.png",
+    "128": "images/notes-128.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://*.lightning.force.com/*"
+      ],
+      "runs_at": "document_end"
+    }
+  ]
 }
